@@ -16,7 +16,7 @@ def exam(request):
     message=""
 
     if request.method=="POST":
-        print(request.POST['question'])
+        form=examForms()
         if bool(request.POST['question']) & bool(request.POST['answer']):
             form=examForms(request.POST)
             if form.is_valid():
@@ -24,6 +24,8 @@ def exam(request):
                 # question = questions(question=request.POST['question'],answer=request.POST['answer'],date=datetime.datetime.now())
                 question.save()
                 message="Add succesfully"
+            else:
+                message = "Error vaildate"
         else:
             message="error check"
     else:

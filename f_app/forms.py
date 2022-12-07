@@ -1,5 +1,6 @@
 from django import forms
 import datetime
+
 class examForms(forms.Form):
     question=forms.CharField(label="Question",max_length=300)
     answer=forms.CharField(label="Answer",max_length=400)
